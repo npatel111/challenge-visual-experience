@@ -2,3 +2,11 @@
  *  your code goes here  *
  *************************/
 
+.bxc .bx-creative {
+  background: url(images/background.png);
+  background-size: cover;
+}
+
+#bx-logo {
+  max-width: 12em;
+}
