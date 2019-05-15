@@ -11,23 +11,26 @@
 
 p.bx-row-subheadline-1 {
   font-family:  "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   color: #006;
-  margin-top: 3.5em;
+  letter-spacing: -0.02em;
+  margin-top: 4.5em;
 }
 
 p.bx-row-headline-1 {
   color: #006;
   font-family: "Helvetica Neue";
-  font-size: 45px;
+  font-size: 40px;
   font-weight: bold;
   letter-spacing: -0.02em;
   margin-top: -5px;
 }
 
 p.bx-row-headline-2 {
+  color: #006;
   font-weight: bold;
-  font-size: 63px;
+  font-size: 58px;
+  letter-spacing: -0.02em;
   margin-top: -27px;
 }
 
@@ -46,10 +49,15 @@ p.bx-row-headline-2 {
   background: url('images/join_now_button.png');
   background-size: cover;
   background-repeat: no-repeat;
+  border-style: none;
   margin-top: -5px;
   width: 285.5px;
+  height: 52px;
 }
 
+input[value="Join Now"] {
+  font-size: 0;
+}
 
 
 
