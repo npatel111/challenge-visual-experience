@@ -39,13 +39,25 @@ div.style.transform = "translateX(-50%) translateY(-50%)";
 div.style.zIndex = "4";
 document.getElementsByTagName('body')[0].appendChild(div);
 
+//style shirt on left side
+var bxProduct = document.createElement('img');
+bxProduct.setAttribute('id', 'bx-product');
+bxProduct.src = prodImgLink;
+bxProduct.style.maxHeight = "25em";
+bxProduct.style.width = "49%";
+bxProduct.style.float = "left";
+bxProduct.style.borderRight = "1px solid #cbcbcb";
 
 //style content of div
 div.innerText = `Get this ${prodName} for ${discountPrice} with a 15% discount`;
 
 
 // style x buttons
+$('#bx-overlay').append($(bxProduct));
 $('#bx-overlay').append($('<svg id="bx-close"><path d="M1.143 22L10 12.257 18.857 22 20 20.743 11.143 11 20 1.257 18.857 0 10 9.743 1.143 0 0 1.257 8.857 11 0 20.743z"></path></svg>'))
+
+
+
 
 
 function toggleOverlay() {
