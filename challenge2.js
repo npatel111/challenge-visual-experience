@@ -27,7 +27,7 @@ document.getElementsByTagName('body')[0].appendChild(transparentDiv);
 // style overlay
 var div = document.createElement('div');
 div.setAttribute('id', 'bx-overlay');
-div.style.backgroundColor = "blue";
+div.style.backgroundColor = "white";
 div.style.width = "300px";
 div.style.height = "300px";
 div.style.display = "none";
@@ -45,11 +45,7 @@ div.innerText = `Get this ${prodName} for ${discountPrice} with a 15% discount`;
 
 
 // style x buttons
-var xBtn = document.createElement('img');
-xBtn.src = "https://image.flaticon.com/icons/svg/118/118741.svg";
-xBtn.setAttribute('id', 'bx-close');
-xBtn.style.maxWidth = "4em";
-div.appendChild(xBtn);
+$('#bx-overlay').append($('<svg id="bx-close"><path d="M1.143 22L10 12.257 18.857 22 20 20.743 11.143 11 20 1.257 18.857 0 10 9.743 1.143 0 0 1.257 8.857 11 0 20.743z"></path></svg>'))
 
 
 function toggleOverlay() {
