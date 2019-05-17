@@ -7,8 +7,9 @@ var prodName = document.querySelector('div.product-name').innerText;
 var prodPrice = document.querySelector('span.price-sales').innerText.replace('Sale Price:\n$','').trim()
 var discountPrice = parseInt(prodPrice)*.85;
 var sizes = $(".size").find(".selectable");
-var prodImg = $('.primary-image')[1]
-var prodImgLink = prodImg.src
+var prodImg = $('.primary-image')[1];
+var prodImgLink = prodImg.src;
+var clickCount = 0;
 
 // style transparent div
 var transparentDiv = document.createElement('div');
@@ -36,7 +37,7 @@ div.style.top = "50%";
 div.style.left = "50%";
 div.style.transform = "translateX(-50%) translateY(-50%)";
 div.style.zIndex = "4";
-document.getElementsByTagName('body')[0].appendChild(div)
+document.getElementsByTagName('body')[0].appendChild(div);
 
 
 //style content of div
@@ -52,12 +53,13 @@ div.appendChild(xBtn);
 
 
 function toggleOverlay() {
-  console.log('running toggleOverlay function');
   var overlay = document.getElementById('bx-overlay');
-  if (overlay.style.display === "none") {
+  if (overlay.style.display === "none" && clickCount < 3) {
     console.log('overlay was display none, now is display block');
     overlay.style.display = "block";
     transparentDiv.style.display = "block";
+    clickCount++;
+    console.log('clickCount is ', clickCount);
   } else {
     overlay.style.display = "none";
     console.log('overlay was display block');
