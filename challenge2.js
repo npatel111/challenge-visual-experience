@@ -7,12 +7,23 @@ var prodName = document.querySelector('div.product-name').innerText;
 var prodPrice = document.querySelector('span.price-sales').innerText.replace('Sale Price:\n$','').trim()
 var discountPrice = parseInt(prodPrice)*.85;
 var sizes = $(".size").find(".selectable");
+var prodImg = $('.primary-image')[1]
+var prodImgLink = prodImg.src
 
 var div = document.createElement('div');
 div.setAttribute('id', 'bx-overlay');
 div.style.backgroundColor = "blue";
-div.style.height = "100px";
+div.style.width = "300px";
+div.style.height = "300px";
 div.style.display = "none";
+div.style.margin = "O auto";
+div.style.position = "fixed";
+div.style.top = "50%";
+div.style.left = "50%";
+div.style.transform = "translateX(-50%) translateY(-50%)";
+
+div.innerText = `Get this ${prodName} for ${discountPrice} with a 15% discount`;
+
 document.getElementsByTagName('body')[0].appendChild(div)
 
 
