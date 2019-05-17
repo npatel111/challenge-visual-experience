@@ -10,6 +10,7 @@ var sizes = $(".size").find(".selectable");
 var prodImg = $('.primary-image')[1]
 var prodImgLink = prodImg.src
 
+// style shape, position of div
 var div = document.createElement('div');
 div.setAttribute('id', 'bx-overlay');
 div.style.backgroundColor = "blue";
@@ -21,40 +22,44 @@ div.style.position = "fixed";
 div.style.top = "50%";
 div.style.left = "50%";
 div.style.transform = "translateX(-50%) translateY(-50%)";
+document.getElementsByTagName('body')[0].appendChild(div)
 
+
+//style content of div
 div.innerText = `Get this ${prodName} for ${discountPrice} with a 15% discount`;
 
-document.getElementsByTagName('body')[0].appendChild(div)
+
+// style height
+var transparentDiv = document.createElement('div');
+transparentDiv.style.width =  '100vw'
+transparentDiv.style.height = '100vh';
+transparentDiv.style.display = "none";
+transparentDiv.style.position = "fixed";
+transparentDiv.style.backgroundColor = "black";
+transparentDiv.style.left = '0';
+transparentDiv.style.top = '0';
+transparentDiv.style.zIndex = '3';
+transparentDiv.style.opacity="0.5";
+document.getElementsByTagName('body')[0].appendChild(transparentDiv);
+
+
+
+// style buttons
+
+
 
 
 function toggleOverlay() {
   console.log('running toggleOverlay function');
   var overlay = document.getElementById('bx-overlay');
   if (overlay.style.display === "none") {
-    overlay.style.display = "block"
+    overlay.style.display = "block";
+    transparentDiv.style.display = "block";
   } else {
     overlay.style.display = "none";
+    transparentDiv.style.display = "none";
   }
 }
-
-// https://stackoverflow.com/questions/16310423/addeventlistener-calls-the-function-without-me-even-asking-it-to
-// function addClickListener() {
-//   for (var i = 0; i < sizes.length; i++) {
-//     console.log(sizes[i]);
-//     sizes[i].addEventListener('click', function() {
-//       toggleOverlay()
-//     }); 
-//   };
-// }  
-
-// function addClickListener() {
-//   for (var i = 0; i < sizes.length; i++) {
-//     console.log(sizes[i]);
-//     sizes[i].addEventListener('click', function() {
-//       toggleOverlay()
-//     }); 
-//   };
-// }  
 
 // $(document).on('click', '.size .selectable', function() {alert('hi')})
 $(document).on('click', '.size', function() {toggleOverlay()})
