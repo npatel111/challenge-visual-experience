@@ -40,15 +40,23 @@ document.getElementsByTagName('body')[0].appendChild(div);
 
 //style shirt on left side
 
+var left = document.createElement('div');
+left.setAttribute('id', 'bx-left');
+left.style.float = "left";
+left.style.width = "49%";
+left.style.display = "flex";
+left.style.height = "30em";
+left.style.justifyContent = "center";
+left.style.alignItems = "center";
 var prodImg = $('.primary-image')[1];
 var prodImgLink = prodImg.src;
 var bxProduct = document.createElement('img');
 bxProduct.setAttribute('id', 'bx-product');
 bxProduct.src = prodImgLink;
-bxProduct.style.width = "49%";
-bxProduct.style.float = "left";
+bxProduct.style.padding = "30px";
 bxProduct.style.borderRight = "1px solid #cbcbcb";
-$('#bx-overlay').append($(bxProduct));
+left.appendChild(bxProduct);
+div.appendChild(left);
 
 function styleShirt() {
   prodImg = $('.primary-image')[1];
@@ -58,11 +66,27 @@ function styleShirt() {
 
 
 
-//style content of div
+//style right side text
+var right = document.createElement('div');
+right.setAttribute('id', 'bx-right');
+right.style.float = "right";
+right.style.width = "49%";
+right.style.display = "flex";
+right.style.height = "30em";
+right.style.justifyContent = "center";
+right.style.alignItems = "center";
 var bxText = document.createElement('p');
 bxText.setAttribute('id', 'bx-text');
-bxText.innerText = `Get this ${prodName} for ${discountPrice} with a 15% discount`;
-div.appendChild(bxText);
+bxText.innerText = `Get this ${prodName} for $${discountPrice} with a 15% discount`;
+bxText.style.font = "1.2em ars_maquette_promedium,sans-serif";
+// bxText.style.fontSize = "2em";
+bxText.style.fontWeight = "400";
+bxText.style.padding = "30px";
+bxText.style.textRendering = "optimizeLegibility";
+bxText.style.letterSpacing = "-.02em";
+bxText.style.textAlign = "center";
+right.appendChild(bxText);
+div.appendChild(right);
 
 // style x buttons
 var bxClose = document.createElementNS('http://www.w3.org/2000/svg','svg');
@@ -88,15 +112,12 @@ $('#bx-overlay').append($(bxClose));
 function toggleOverlay() {
   var overlay = document.getElementById('bx-overlay');
   if (overlay.style.display === "none" && clickCount < 3) {
-    console.log('overlay was display none, now is display block');
     styleShirt();
     overlay.style.display = "block";
     transparentDiv.style.display = "block";
     clickCount++;
-    console.log('clickCount is ', clickCount);
   } else {
     overlay.style.display = "none";
-    console.log('overlay was display block');
     transparentDiv.style.display = "none";
   }
 }
