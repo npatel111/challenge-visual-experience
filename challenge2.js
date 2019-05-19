@@ -101,6 +101,7 @@ bxClose.setAttribute('id', 'bx-close');
 bxClose.setAttribute('height', '20');
 bxClose.setAttribute('width', '20');
 bxClose.setAttribute('viewBox', '0 0 20 22');
+bxClose.style.margin = "2%";
 bxClose.style.position = "absolute";
 bxClose.style.top = "0";
 bxClose.style.right = "0";
@@ -138,9 +139,9 @@ cartSVG.appendChild(cartPath);
 addToCart.appendChild(cartSVG);
 right.appendChild(addToCart);
 
-
-
-
+$('#bx-add-to-cart').click(function() {
+  window.location='https://www.marmot.com/cart';
+});
 
 function toggleOverlay() {
   var overlay = document.getElementById('bx-overlay');
