@@ -2,6 +2,11 @@
  *  your code goes here  *
  *************************/
 
+.bxc .bx-close-circle {
+  left: 1.25em;
+  right: auto;
+}
+
 .bxc .bx-creative {
   background: url(images/background.png);
   background-repeat:no-repeat; 
@@ -14,7 +19,7 @@ p.bx-row-subheadline-1 {
   font-size: 15px;
   color: #006;
   letter-spacing: -0.02em;
-  margin-top: 4.5em;
+  margin-top: 12%;
 }
 
 p.bx-row-headline-1 {
@@ -59,6 +64,36 @@ input[value="Join Now"] {
   font-size: 0;
 }
 
+@media only screen and (max-width: 767px) {
+  
+  .bxc .bx-close-circle {
+    left: .5em;
+    top: 0;
+  }
+
+  p.bx-row-headline-1 {
+    font-size: 30px;
+  }
+
+  p.bx-row-headline-2 {
+    font-size: 43px;
+    margin-top: -24px;
+  }
+  
+  .bxc .bx-creative .bx-row.bx-row-email {
+    padding-top: 0;
+  }
+
+  .bxc .bx-creative input[type="email"] {
+    height: 32px;
+    width: 225px;
+  }
+
+  .bxc .bx-creative input[type="submit"] {
+    height: 41px;
+    width: 225px;
+  }
+}
 
 
 
