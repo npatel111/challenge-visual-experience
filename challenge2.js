@@ -5,7 +5,7 @@
 
 var prodName = document.querySelector('div.product-name').innerText;
 var prodPrice = document.querySelector('span.price-sales').innerText.split('$')[1];
-var discountPrice = parseInt(prodPrice)*.85;
+var discountPrice = (parseInt(prodPrice)*.85).toFixed(2);
 var sizes = $(".size").find(".selectable");
 
 var clickCount = 0;
@@ -47,6 +47,7 @@ left.style.float = "left";
 left.style.width = "50%";
 left.style.display = "flex";
 left.style.height = "30em";
+left.style.borderRight = "1px solid #cbcbcb";
 left.style.justifyContent = "center";
 left.style.alignItems = "center";
 var prodImg = $('.primary-image')[1];
@@ -55,7 +56,6 @@ var bxProduct = document.createElement('img');
 bxProduct.setAttribute('id', 'bx-product');
 bxProduct.src = prodImgLink;
 bxProduct.style.padding = "30px";
-bxProduct.style.borderRight = "1px solid #cbcbcb";
 left.appendChild(bxProduct);
 div.appendChild(left);
 
