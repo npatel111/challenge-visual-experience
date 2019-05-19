@@ -4,7 +4,7 @@
 // and a 15% discounted price.
 
 var prodName = document.querySelector('div.product-name').innerText;
-var prodPrice = document.querySelector('span.price-sales').innerText.replace('Sale Price:\n$','').trim()
+var prodPrice = document.querySelector('span.price-sales').innerText.split('$')[1];
 var discountPrice = parseInt(prodPrice)*.85;
 var sizes = $(".size").find(".selectable");
 
@@ -36,14 +36,15 @@ div.style.top = "50%";
 div.style.left = "50%";
 div.style.transform = "translateX(-50%) translateY(-50%)";
 div.style.zIndex = "4";
-document.getElementsByTagName('body')[0].appendChild(div);
+// document.getElementsByTagName('body')[0].appendChild(div);
+$('.pdp-main').append($(div));
 
 //style shirt on left side
 
 var left = document.createElement('div');
 left.setAttribute('id', 'bx-left');
 left.style.float = "left";
-left.style.width = "49%";
+left.style.width = "50%";
 left.style.display = "flex";
 left.style.height = "30em";
 left.style.justifyContent = "center";
@@ -70,8 +71,9 @@ function styleShirt() {
 var right = document.createElement('div');
 right.setAttribute('id', 'bx-right');
 right.style.float = "right";
-right.style.width = "49%";
+right.style.width = "50%";
 right.style.display = "flex";
+right.style.flexDirection = "column";
 right.style.height = "30em";
 right.style.justifyContent = "center";
 right.style.alignItems = "center";
@@ -104,6 +106,34 @@ bxPath.setAttributeNS(null, 'd', "M1.143 22L10 12.257 18.857 22 20 20.743 11.143
 bxClose.appendChild(bxPath);
 
 $('#bx-overlay').append($(bxClose));
+
+//style Add To Cart button
+var addToCart = document.createElement('button');
+addToCart.setAttribute('id', 'bx-add-to-cart');
+addToCart.setAttribute('className', 'add-to-cart add-to-cart-button');
+addToCart.style.background = "#cc0001";
+addToCart.style.color = "#fff";
+addToCart.style.padding = "12px 0";
+addToCart.style.fontSize = "18px";
+addToCart.style.margin = "30px 0";
+addToCart.style.width = "80%";
+addToCart.value = "Add to cart";
+var spanCart = document.createElement('span');
+spanCart.style.lineHeight = "29px";
+spanCart.style.fontWeight = "bold";
+spanCart.innerText = "Add to Cart";
+addToCart.appendChild(spanCart);
+var cartSVG = document.createElementNS('http://www.w3.org/2000/svg','svg');
+cartSVG.setAttribute('className', 'svg-icon svg-icon-bag');
+cartSVG.setAttribute('height', '23');
+cartSVG.setAttribute('width', '20');
+cartSVG.style.fill = "currentColor";
+cartSVG.style.marginLeft= "10px";
+var cartPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+cartPath.setAttributeNS(null, 'd', "M1.348 22.906C.905 22.74.238 22.07.062 21.612c-.292-.756.52-16.77.88-17.38.485-.818 1.222-1.052 3.32-1.052H6.13l.45-.948c1.45-3.04 5.778-2.955 6.96.138l.308.81h1.888c3.74 0 3.545-.476 4.01 9.784.393 8.674.39 8.755-.438 9.525l-.485.45-8.602.03c-4.73.02-8.72-.01-8.87-.07zM18.31 20.73c.003-1.068-.55-13.554-.648-14.617l-.102-1.128H13.8v1.86c0 1.968-.12 2.29-.84 2.29-.718 0-.965-.633-.965-2.476V4.98H7.843v1.86c0 1.952-.12 2.29-.812 2.29-.69 0-.81-.338-.81-2.29V4.98H2.46l-.097.947c-.094.897-.66 13.74-.655 14.8l.003.494h16.6l.003-.493zM11.823 2.833c-.765-1.428-2.86-1.428-3.624 0l-.19.347h3.993l-.185-.347z");
+cartSVG.appendChild(cartPath);
+addToCart.appendChild(cartSVG);
+right.appendChild(addToCart);
 
 
 
