@@ -1,103 +1,103 @@
 /*************************
- *  your code goes here  *
+ *    your code goes here    *
  *************************/
 
 .bxc .bx-close-circle {
-  left: .5em;
-  right: auto;
-  top: 0;
+    left: .5em;
+    right: auto;
+    top: 0;
 }
 
 .bxc .bx-creative {
-  background: url(images/background.png);
-  background-repeat:no-repeat; 
-  background-size: contain;
-  height: 367px;
+    background: url(images/background.png);
+    background-repeat:no-repeat; 
+    background-size: contain;
+    height: 367px;
 }
 
 p.bx-row-subheadline-1 {
-  color: #006;
-  font-family:  "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  font-size: 15px;
-  letter-spacing: -0.02em;
-  margin-top: 14%;
+    color: #006;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-size: 15px;
+    letter-spacing: -0.02em;
+    margin-top: 14%;
 }
 
 p.bx-row-headline-1 {
-  color: #006;
-  font-family: "Helvetica Neue";
-  font-size: 40px;
-  font-weight: bold;
-  letter-spacing: -0.02em;
-  margin-top: -5px;
+    color: #006;
+    font-family: "Helvetica Neue";
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    margin-top: -5px;
 }
 
 p.bx-row-headline-2 {
-  color: #006;
-  font-size: 58px;
-  font-weight: bold;
-  letter-spacing: -0.02em;
-  margin-top: -27px;
+    color: #006;
+    font-size: 58px;
+    font-weight: bold;
+    letter-spacing: -0.02em;
+    margin-top: -27px;
 }
 
  .bxc .bx-creative .bx-row.bx-row-email {
-    padding-bottom: 0;
-  }
+        padding-bottom: 0;
+    }
 
 .bxc .bx-creative input[type="email"] {
-  background: url('images/input_button.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  border: none;
-  text-align: center;
-  width: 285.5px;
+    background: url('images/input_button.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    text-align: center;
+    width: 285.5px;
 }
 
 ::placeholder {
-  color: #c2c2c2;
+    color: #c2c2c2;
 }
 
 .bxc .bx-creative input[type="submit"] {
-  background: url('images/join_now_button.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  border-style: none;
-  height: 55px;
-  margin-top: -5px;
-  width: 285.5px; 
+    background: url('images/join_now_button.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-style: none;
+    height: 55px;
+    margin-top: -5px;
+    width: 285.5px; 
 }
 
 input[value="Join Now"] {
-  font-size: 0;
+    font-size: 0;
 }
 
 /* For devices smaller than an iPad */
 @media only screen and (max-width: 767px) {
-  
-  p.bx-row-headline-1 {
-    font-size: 30px;
-  }
+    
+    p.bx-row-headline-1 {
+        font-size: 30px;
+    }
 
-  p.bx-row-headline-2 {
-    font-size: 43px;
-    margin-top: -24px;
-  }
-  
-  .bxc .bx-creative .bx-row.bx-row-email,
-  .bxc .bx-creative .bx-row.bx-row-submit {
-    padding-top: 0;
-  }
+    p.bx-row-headline-2 {
+        font-size: 43px;
+        margin-top: -24px;
+    }
+    
+    .bxc .bx-creative .bx-row.bx-row-email,
+    .bxc .bx-creative .bx-row.bx-row-submit {
+        padding-top: 0;
+    }
 
-  .bxc .bx-creative input[type="email"] {
-    background-size: contain;
-    font-size: 15px;
-    width: 230px;
-  }
+    .bxc .bx-creative input[type="email"] {
+        background-size: contain;
+        font-size: 15px;
+        width: 232px;
+    }
 
-  .bxc .bx-creative input[type="submit"] {
-    background-size: contain;
-    width: 230px;
-  }
+    .bxc .bx-creative input[type="submit"] {
+        background-size: contain;
+        width: 230px;
+    }
 }
 
 

@@ -1,158 +1,147 @@
-// Store variables for 
-// product name, 
-// product price, 
-// and a 15% discounted price.
 
-var prodName = document.querySelector('div.product-name').innerText;
-var prodPrice = document.querySelector('span.price-sales').innerText.split('$')[1];
+var prodName = $('div.product-name')[0].innerText;
+var prodPrice = $('span.price-sales')[0].innerText.split('$')[1];
 var discountPrice = (parseInt(prodPrice)*.85).toFixed(2);
 var sizes = $(".size").find(".selectable");
-
 var clickCount = 0;
 
-// style transparent div
-var transparentDiv = document.createElement('div');
-transparentDiv.style.width =  '100vw'
-transparentDiv.style.height = '100vh';
-transparentDiv.style.display = "none";
-transparentDiv.style.position = "fixed";
-transparentDiv.style.backgroundColor = "black";
-transparentDiv.style.left = '0';
-transparentDiv.style.top = '0';
-transparentDiv.style.zIndex = '3';
-transparentDiv.style.opacity="0.5";
-document.getElementsByTagName('body')[0].appendChild(transparentDiv);
+// style transparent background, append to body
+var curtain = document.createElement('div');
+$(curtain).css('width', '100vw');
+$(curtain).css('height', '100vh');
+$(curtain).css('display', "none");
+$(curtain).css('position', "fixed");
+$(curtain).css('backgroundColor', "black");
+$(curtain).css('left', '0');
+$(curtain).css('top', '0');
+$(curtain).css('zIndex', '3');
+$(curtain).css('opacity', "0.5");
+$('body')[0].append(curtain);
 
 // style overlay
-var div = document.createElement('div');
-div.setAttribute('id', 'bx-overlay');
-div.style.backgroundColor = "white";
-div.style.width = "auto";
-div.style.height = "auto";
-div.style.display = "none";
-div.style.margin = "O auto";
-div.style.padding = "30px";
-div.style.position = "fixed";
-div.style.top = "50%";
-div.style.left = "50%";
-div.style.transform = "translateX(-50%) translateY(-50%)";
-div.style.zIndex = "4";
-// document.getElementsByTagName('body')[0].appendChild(div);
-$('.pdp-main').append($(div));
+var overlay = document.createElement('div');
+$(overlay).attr('id', 'bx-overlay');
+$(overlay).css('backgroundColor', "white");
+$(overlay).css('width', "auto");
+$(overlay).css('height', "auto");
+$(overlay).css('display', "none");
+$(overlay).css('margin', "O auto");
+$(overlay).css('padding', "30px");
+$(overlay).css('position', "fixed");
+$(overlay).css('top', "50%");
+$(overlay).css('left', "50%");
+$(overlay).css('transform', "translateX(-50%) translateY(-50%)");
+$(overlay).css('zIndex', "4");
+$('body')[0].append(overlay);
 
-//style shirt on left side
-
+//style product on left side
 var left = document.createElement('div');
-left.setAttribute('id', 'bx-left');
+$(left).attr('id', 'bx-left');
 left.style.float = "left";
-left.style.width = "50%";
-left.style.display = "flex";
-left.style.height = "30em";
-left.style.justifyContent = "center";
-left.style.alignItems = "center";
-// left.style.paddingLeft = "30px";
-// left.style.paddingRight = "30px";
-var prodImg = $('.primary-image')[1];
-var prodImgLink = prodImg.src;
+$(left).css('width', "50%");
+$(left).css('display', "flex");
+$(left).css('height', "30em");
+$(left).css('justifyContent', "center");
+$(left).css('alignItems', "center");
+
+var prodImgLink = $('.primary-image')[1].src;
 var bxProduct = document.createElement('img');
-bxProduct.setAttribute('id', 'bx-product');
-bxProduct.src = prodImgLink;
-bxProduct.style.borderRight = "1px solid #cbcbcb";
-bxProduct.style.paddingRight = "30px";
-left.appendChild(bxProduct);
-div.appendChild(left);
+$(bxProduct).attr('id', 'bx-product');
+$(bxProduct).attr('src', prodImgLink);
+$(bxProduct).css('borderRight', "1px solid #cbcbcb");
+$(bxProduct).css('paddingRight', "30px");
 
-function styleShirt() {
-  prodImg = $('.primary-image')[1];
-  prodImgLink = prodImg.src;
-  bxProduct.src = prodImgLink;
-}
-
-
+$(left).append(bxProduct);
+$(overlay).append(left);
 
 //style right side text
 var right = document.createElement('div');
-right.setAttribute('id', 'bx-right');
-right.style.float = "right";
-right.style.width = "50%";
-right.style.display = "flex";
-right.style.flexDirection = "column";
-right.style.height = "30em";
-right.style.justifyContent = "center";
-right.style.alignItems = "center";
+$(right).attr('id', 'bx-right');
+$(right).css('float', "right");
+$(right).css('width', "50%");
+$(right).css('display', "flex");
+$(right).css('flexDirection', "column");
+$(right).css('height', "30em");
+$(right).css('justifyContent', "center");
+$(right).css('alignItems', "center");
 var bxText = document.createElement('p');
-bxText.setAttribute('id', 'bx-text');
-bxText.innerText = `Get this ${prodName} for $${discountPrice} with a 15% discount`;
-bxText.style.font = "1.2em ars_maquette_promedium,sans-serif";
-// bxText.style.fontSize = "2em";
-bxText.style.fontWeight = "400";
-bxText.style.padding = "30px";
-bxText.style.textRendering = "optimizeLegibility";
-bxText.style.letterSpacing = "-.02em";
-bxText.style.textAlign = "center";
-right.appendChild(bxText);
-div.appendChild(right);
+$(bxText).attr('id', 'bx-text');
+$(bxText).text(`Get this ${prodName} for $${discountPrice} with a 15% discount`);
+$(bxText).css('font', "1.2em ars_maquette_promedium,sans-serif");
+$(bxText).css('fontWeight', "400");
+$(bxText).css('padding', "30px");
+$(bxText).css('textRendering', "optimizeLegibility");
+$(bxText).css('letterSpacing', "-.02em");
+$(bxText).css('textAlign', "center");
+$(right).append(bxText);
+$(overlay).append(right);
 
 // style x buttons
 var bxClose = document.createElementNS('http://www.w3.org/2000/svg','svg');
-bxClose.style.height = "20";
-bxClose.style.width = "20";
-bxClose.setAttribute('id', 'bx-close');
-bxClose.setAttribute('height', '20');
-bxClose.setAttribute('width', '20');
-bxClose.setAttribute('viewBox', '0 0 20 22');
-bxClose.style.margin = "2%";
-bxClose.style.position = "absolute";
-bxClose.style.top = "0";
-bxClose.style.right = "0";
+$(bxClose).attr('id', 'bx-close');
+$(bxClose).attr('height', '20');
+$(bxClose).attr('width', '20');
+$(bxClose).attr('viewBox', '0 0 20 22');
+$(bxClose).css('height', "20");
+$(bxClose).css('width', "20");
+$(bxClose).css('margin', "2%");
+$(bxClose).css('position', "absolute");
+$(bxClose).css('top', "0");
+$(bxClose).css('right', "0");
 var bxPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 bxPath.setAttributeNS(null, 'd', "M1.143 22L10 12.257 18.857 22 20 20.743 11.143 11 20 1.257 18.857 0 10 9.743 1.143 0 0 1.257 8.857 11 0 20.743z");
-bxClose.appendChild(bxPath);
-
-$('#bx-overlay').append($(bxClose));
+$(bxClose).append(bxPath);
+$(overlay).append(bxClose);
 
 //style Add To Cart button
 var addToCart = document.createElement('button');
-addToCart.setAttribute('id', 'bx-add-to-cart');
-addToCart.setAttribute('className', 'add-to-cart add-to-cart-button');
-addToCart.style.background = "#cc0001";
-addToCart.style.color = "#fff";
-addToCart.style.padding = "12px 0";
-addToCart.style.fontSize = "18px";
-addToCart.style.margin = "30px 0";
-addToCart.style.width = "80%";
-addToCart.value = "Add to cart";
+$(addToCart).attr('id', 'bx-add-to-cart');
+$(addToCart).attr('className', 'add-to-cart add-to-cart-button');
+$(addToCart).css('background', "#cc0001");
+$(addToCart).css('color', "#fff");
+$(addToCart).css('padding', "12px 0");
+$(addToCart).css('fontSize', "18px");
+$(addToCart).css('margin', "30px 0");
+$(addToCart).css('width', "80%");
+$(addToCart).attr('value', "Add to cart");
 var spanCart = document.createElement('span');
-spanCart.style.lineHeight = "29px";
-spanCart.style.fontWeight = "bold";
-spanCart.innerText = "Add to Cart";
+$(spanCart).css('lineHeight', "29px");
+$(spanCart).css('fontWeight', "bold");
+$(spanCart).text("Add to Cart");
 addToCart.appendChild(spanCart);
+//add SVG image to button
 var cartSVG = document.createElementNS('http://www.w3.org/2000/svg','svg');
-cartSVG.setAttribute('className', 'svg-icon svg-icon-bag');
-cartSVG.setAttribute('height', '23');
-cartSVG.setAttribute('width', '20');
-cartSVG.style.fill = "currentColor";
-cartSVG.style.marginLeft= "10px";
+$(cartSVG).attr('className', 'svg-icon svg-icon-bag');
+$(cartSVG).attr('height', '23');
+$(cartSVG).attr('width', '20');
+$(cartSVG).css('fill', "currentColor");
+$(cartSVG).css('marginLeft', "10px");
+$(cartSVG).css('paddingTop', "5px");
+$(cartSVG).css('overflow', "visible");
 var cartPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 cartPath.setAttributeNS(null, 'd', "M1.348 22.906C.905 22.74.238 22.07.062 21.612c-.292-.756.52-16.77.88-17.38.485-.818 1.222-1.052 3.32-1.052H6.13l.45-.948c1.45-3.04 5.778-2.955 6.96.138l.308.81h1.888c3.74 0 3.545-.476 4.01 9.784.393 8.674.39 8.755-.438 9.525l-.485.45-8.602.03c-4.73.02-8.72-.01-8.87-.07zM18.31 20.73c.003-1.068-.55-13.554-.648-14.617l-.102-1.128H13.8v1.86c0 1.968-.12 2.29-.84 2.29-.718 0-.965-.633-.965-2.476V4.98H7.843v1.86c0 1.952-.12 2.29-.812 2.29-.69 0-.81-.338-.81-2.29V4.98H2.46l-.097.947c-.094.897-.66 13.74-.655 14.8l.003.494h16.6l.003-.493zM11.823 2.833c-.765-1.428-2.86-1.428-3.624 0l-.19.347h3.993l-.185-.347z");
-cartSVG.appendChild(cartPath);
-addToCart.appendChild(cartSVG);
-right.appendChild(addToCart);
+$(cartSVG).append(cartPath);
+$(addToCart).append(cartSVG);
+$(right).append(addToCart);
 
 $('#bx-add-to-cart').click(function() {
   window.location='https://www.marmot.com/cart';
 });
 
+function styleShirt() {
+  prodImgLink = $('.primary-image')[1].src;
+  $(bxProduct).attr('src', prodImgLink);
+}
+
 function toggleOverlay() {
-  var overlay = document.getElementById('bx-overlay');
   if (overlay.style.display === "none" && clickCount < 3) {
     styleShirt();
-    overlay.style.display = "block";
-    transparentDiv.style.display = "block";
+    $(overlay).css('display', "block");
+    $(curtain).css('display', "block");
     clickCount++;
   } else {
-    overlay.style.display = "none";
-    transparentDiv.style.display = "none";
+    $(overlay).css('display', "none");
+    $(curtain).css('display', "none");
   }
 }
 
