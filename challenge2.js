@@ -7,6 +7,7 @@ var clickCount = 0;
 
 // style transparent background, append to body
 var curtain = document.createElement('div');
+$(curtain).attr('id', 'bx-curtain');
 $(curtain).css('width', '100vw');
 $(curtain).css('height', '100vh');
 $(curtain).css('display', "none");
@@ -23,7 +24,6 @@ var overlay = document.createElement('div');
 $(overlay).attr('id', 'bx-overlay');
 $(overlay).css('backgroundColor', "white");
 $(overlay).css('width', "300px");
-$(overlay).css('height', "auto");
 $(overlay).css('display', "none");
 $(overlay).css('margin', "O auto");
 $(overlay).css('padding', "30px");
@@ -108,8 +108,6 @@ $(overlay).append(bxClose);
 
 //style Add To Cart button
 var addToCart = document.createElement('button');
-$(addToCart).attr('id', 'bx-add-to-cart');
-$(addToCart).attr('className', 'add-to-cart add-to-cart-button');
 $(addToCart).css('background', "#cc0001");
 $(addToCart).css('color', "#fff");
 $(addToCart).css('padding', "12px 0");
@@ -127,7 +125,6 @@ addToCart.appendChild(spanCart);
 
 // style Add To Cart button (SVG)
 var cartSVG = document.createElementNS('http://www.w3.org/2000/svg','svg');
-$(cartSVG).attr('className', 'svg-icon svg-icon-bag');
 $(cartSVG).attr('height', '23');
 $(cartSVG).attr('width', '20');
 $(cartSVG).css('fill', "currentColor");
@@ -165,7 +162,7 @@ function removeOverlay() {
 }
 
 // go to cart
-$('#bx-add-to-cart').click(function() {
+$(addToCart).click(function() {
   window.location='https://www.marmot.com/cart';
 });
 
