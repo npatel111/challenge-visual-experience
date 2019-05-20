@@ -34,7 +34,7 @@ $(overlay).css('transform', "translateX(-50%) translateY(-50%)");
 $(overlay).css('zIndex', "4");
 $('body')[0].append(overlay);
 
-//style product on left side
+//style left side
 var left = document.createElement('div');
 $(left).attr('id', 'bx-left');
 left.style.float = "left";
@@ -44,17 +44,17 @@ $(left).css('height', "30em");
 $(left).css('justifyContent', "center");
 $(left).css('alignItems', "center");
 
+// style product image on left side
 var prodImgLink = $('.primary-image')[1].src;
 var bxProduct = document.createElement('img');
 $(bxProduct).attr('id', 'bx-product');
 $(bxProduct).attr('src', prodImgLink);
 $(bxProduct).css('borderRight', "1px solid #cbcbcb");
 $(bxProduct).css('paddingRight', "30px");
-
 $(left).append(bxProduct);
 $(overlay).append(left);
 
-//style right side text
+//style right side 
 var right = document.createElement('div');
 $(right).attr('id', 'bx-right');
 $(right).css('float', "right");
@@ -64,6 +64,8 @@ $(right).css('flexDirection', "column");
 $(right).css('height', "30em");
 $(right).css('justifyContent', "center");
 $(right).css('alignItems', "center");
+
+// style text on right side
 var bxText = document.createElement('p');
 $(bxText).attr('id', 'bx-text');
 $(bxText).text(`Get this ${prodName} for $${discountPrice} with a 15% discount`);
@@ -76,7 +78,7 @@ $(bxText).css('textAlign', "center");
 $(right).append(bxText);
 $(overlay).append(right);
 
-// style x buttons
+// style x button
 var bxClose = document.createElementNS('http://www.w3.org/2000/svg','svg');
 $(bxClose).attr('id', 'bx-close');
 $(bxClose).attr('height', '20');
@@ -104,12 +106,15 @@ $(addToCart).css('fontSize', "18px");
 $(addToCart).css('margin', "30px 0");
 $(addToCart).css('width', "80%");
 $(addToCart).attr('value', "Add to cart");
+
+// style Add To Cart button (text)
 var spanCart = document.createElement('span');
 $(spanCart).css('lineHeight', "29px");
 $(spanCart).css('fontWeight', "bold");
 $(spanCart).text("Add to Cart");
 addToCart.appendChild(spanCart);
-//add SVG image to button
+
+// style Add To Cart button (SVG)
 var cartSVG = document.createElementNS('http://www.w3.org/2000/svg','svg');
 $(cartSVG).attr('className', 'svg-icon svg-icon-bag');
 $(cartSVG).attr('height', '23');
@@ -124,29 +129,40 @@ $(cartSVG).append(cartPath);
 $(addToCart).append(cartSVG);
 $(right).append(addToCart);
 
-$('#bx-add-to-cart').click(function() {
-  window.location='https://www.marmot.com/cart';
-});
 
-function styleShirt() {
+// JS functions
+//change Shirt Color before showing overlay
+function changeShirtColor() {
   prodImgLink = $('.primary-image')[1].src;
   $(bxProduct).attr('src', prodImgLink);
 }
 
+//activate overlay
 function toggleOverlay() {
   if (overlay.style.display === "none" && clickCount < 3) {
-    styleShirt();
+    changeShirtColor();
     $(overlay).css('display', "block");
     $(curtain).css('display', "block");
     clickCount++;
-  } else {
-    $(overlay).css('display', "none");
-    $(curtain).css('display', "none");
-  }
+  } 
 }
 
+// remove overlay
+function removeOverlay() {
+    $(overlay).css('display', "none");
+    $(curtain).css('display', "none");
+}
+
+// go to cart
+$('#bx-add-to-cart').click(function() {
+  window.location='https://www.marmot.com/cart';
+});
+
+// show overlay
 $(document).on('click', '.size', function() {toggleOverlay()});
-$(document).on('click', '#bx-close', function() {toggleOverlay()});
+
+// remove overlay
+$(document).on('click', '#bx-close', function() {removeOverlay()});
 
 
 
