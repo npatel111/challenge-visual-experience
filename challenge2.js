@@ -22,7 +22,7 @@ $('body')[0].append(curtain);
 var overlay = document.createElement('div');
 $(overlay).attr('id', 'bx-overlay');
 $(overlay).css('backgroundColor', "white");
-$(overlay).css('width', "auto");
+$(overlay).css('width', "300px");
 $(overlay).css('height', "auto");
 $(overlay).css('display', "none");
 $(overlay).css('margin', "O auto");
@@ -32,38 +32,47 @@ $(overlay).css('top', "50%");
 $(overlay).css('left', "50%");
 $(overlay).css('transform', "translateX(-50%) translateY(-50%)");
 $(overlay).css('zIndex', "4");
+if (jQuery(window).width() > 768) {
+    $(overlay).css('width', "auto");
+}
 $('body')[0].append(overlay);
 
 //style left side
 var left = document.createElement('div');
 $(left).attr('id', 'bx-left');
-left.style.float = "left";
-$(left).css('width', "50%");
 $(left).css('display', "flex");
-$(left).css('height', "30em");
 $(left).css('justifyContent', "center");
 $(left).css('alignItems', "center");
+if (jQuery(window).width() > 768) {
+    $(left).css('float', "left");
+    $(left).css('width', "50%");
+    $(left).css('height', "30em");
+}
 
 // style product image on left side
 var prodImgLink = $('.primary-image')[1].src;
 var bxProduct = document.createElement('img');
 $(bxProduct).attr('id', 'bx-product');
 $(bxProduct).attr('src', prodImgLink);
-$(bxProduct).css('borderRight', "1px solid #cbcbcb");
-$(bxProduct).css('paddingRight', "30px");
+if (jQuery(window).width() > 768) {
+    $(bxProduct).css('borderRight', "1px solid #cbcbcb");
+    $(bxProduct).css('paddingRight', "30px");
+}
 $(left).append(bxProduct);
 $(overlay).append(left);
 
 //style right side 
 var right = document.createElement('div');
 $(right).attr('id', 'bx-right');
-$(right).css('float', "right");
-$(right).css('width', "50%");
 $(right).css('display', "flex");
 $(right).css('flexDirection', "column");
-$(right).css('height', "30em");
 $(right).css('justifyContent', "center");
 $(right).css('alignItems', "center");
+if (jQuery(window).width() > 768) {
+    $(right).css('float', "right");
+    $(right).css('width', "50%");
+    $(right).css('height', "30em");
+}
 
 // style text on right side
 var bxText = document.createElement('p');
@@ -71,10 +80,12 @@ $(bxText).attr('id', 'bx-text');
 $(bxText).text(`Get this ${prodName} for $${discountPrice} with a 15% discount`);
 $(bxText).css('font', "1.2em ars_maquette_promedium,sans-serif");
 $(bxText).css('fontWeight', "400");
-$(bxText).css('padding', "30px");
 $(bxText).css('textRendering', "optimizeLegibility");
 $(bxText).css('letterSpacing', "-.02em");
 $(bxText).css('textAlign', "center");
+if (jQuery(window).width() > 768) {
+    $(bxText).css('padding', "30px");
+}
 $(right).append(bxText);
 $(overlay).append(right);
 
