@@ -141,18 +141,18 @@ $(right).append(addToCart);
 // JS functions
 //change Shirt Color before showing overlay
 function changeShirtColor() {
-  prodImgLink = $('.primary-image')[1].src;
-  $(bxProduct).attr('src', prodImgLink);
+    prodImgLink = $('.primary-image')[1].src;
+    $(bxProduct).attr('src', prodImgLink);
 }
 
 //activate overlay
 function toggleOverlay() {
-  if (overlay.style.display === "none" && clickCount < 3) {
-    changeShirtColor();
-    $(overlay).css('display', "block");
-    $(curtain).css('display', "block");
-    clickCount++;
-  } 
+    if (overlay.style.display === "none" && clickCount < 3) {
+        changeShirtColor();
+        $(overlay).css('display', "block");
+        $(curtain).css('display', "block");
+        clickCount++;
+    } 
 }
 
 // remove overlay
@@ -163,7 +163,7 @@ function removeOverlay() {
 
 // go to cart
 $(addToCart).click(function() {
-  window.location='https://www.marmot.com/cart';
+    window.location='https://www.marmot.com/cart';
 });
 
 // show overlay
